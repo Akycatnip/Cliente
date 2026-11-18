@@ -1,0 +1,261 @@
+/* Control de finanzas personales. No es necesario modificar este archivo. */
+
+:root {
+    --color-principal: #dc7dc8;
+    --color-principal-oscuro: #d51ca0;
+    --color-secundario: #e8eee9;
+    --color-fondo: #f5f7f4;
+    --color-superficie: #ffffff;
+    --color-texto: #24031a;
+    --color-muted: #8ac7ec;
+    --color-borde: #dce4de;
+    --color-error: #687819;
+    --color-ingreso: #e066d6;
+    --color-gasto: #614db3;
+    --radio: 12px;
+    --sombra: 0 4px 16px rgba(17, 55, 67, 0.07);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: var(--color-texto);
+    background: var(--color-fondo);
+    line-height: 1.5;
+}
+
+.cabecera {
+    padding: 2rem 1.25rem;
+    color: white;
+    background: var(--color-principal);
+    text-align: center;
+}
+
+.cabecera h1 {
+    margin: 0;
+    font-size: clamp(1.7rem, 4vw, 2.4rem);
+}
+
+.cabecera p {
+    margin: 0.45rem 0 0;
+    color: #e5eee8;
+}
+
+main {
+    width: min(1120px, calc(100% - 2rem));
+    margin: 2rem auto 3rem;
+}
+
+h2 {
+    margin: 0 0 1rem;
+    font-size: 1.3rem;
+}
+
+h3 {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.resumen {
+    margin-bottom: 2rem;
+}
+
+.tarjetas-resumen {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.tarjeta {
+    padding: 1.1rem 1.25rem;
+    background: var(--color-superficie);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio);
+    box-shadow: var(--sombra);
+}
+
+.tarjeta p {
+    margin: 0.45rem 0 0;
+    font-size: 1.55rem;
+    font-weight: 700;
+}
+
+.tarjeta-saldo {
+    border-top: 4px solid var(--color-principal);
+}
+
+.contenido {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.85fr);
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.zona-movimientos,
+.panel-formulario {
+    padding: 1.25rem;
+    background: var(--color-superficie);
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio);
+    box-shadow: var(--sombra);
+}
+
+.filtros {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.campo {
+    margin-bottom: 0.9rem;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+    font-weight: 650;
+}
+
+input,
+select {
+    width: 100%;
+    min-height: 42px;
+    padding: 0.55rem 0.65rem;
+    color: var(--color-texto);
+    font: inherit;
+    background: white;
+    border: 1px solid var(--color-borde);
+    border-radius: 7px;
+}
+
+input:focus,
+select:focus {
+    outline: 2px solid #a9c7b5;
+    border-color: var(--color-principal);
+}
+
+.lista-movimientos {
+    display: grid;
+    gap: 0.65rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.lista-movimientos li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.85rem;
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+}
+
+.datos-movimiento {
+    min-width: 0;
+}
+
+.datos-movimiento strong {
+    display: block;
+    overflow-wrap: anywhere;
+}
+
+.datos-movimiento small {
+    color: var(--color-muted);
+}
+
+.importe-movimiento {
+    flex-shrink: 0;
+    font-weight: 700;
+}
+
+.ingreso {
+    color: var(--color-ingreso);
+}
+
+.gasto {
+    color: var(--color-gasto);
+}
+
+button {
+    padding: 0.55rem 0.8rem;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 7px;
+}
+
+.boton-eliminar {
+    margin-left: 0.5rem;
+    color: var(--color-gasto);
+    background: white;
+    border: 1px solid #e5bcbc;
+}
+
+.boton-principal {
+    width: 100%;
+    color: white;
+    background: var(--color-principal);
+    border: 1px solid var(--color-principal);
+}
+
+.boton-principal:hover {
+    background: var(--color-principal-oscuro);
+}
+
+.boton-secundario {
+    width: 100%;
+    margin-top: 0.8rem;
+    color: var(--color-muted);
+    background: white;
+    border: 1px solid var(--color-borde);
+}
+
+.error {
+    display: block;
+    min-height: 1.1rem;
+    color: var(--color-error);
+    font-size: 0.8rem;
+}
+
+.contador {
+    color: var(--color-muted);
+    font-size: 0.9rem;
+}
+
+#aviso {
+    margin-bottom: 0;
+    font-weight: 600;
+}
+
+#aviso:empty {
+    display: none;
+}
+
+@media (max-width: 800px) {
+    .contenido {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .tarjetas-resumen {
+        grid-template-columns: 1fr;
+    }
+
+    .filtros {
+        grid-template-columns: 1fr;
+    }
+
+    .lista-movimientos li {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}

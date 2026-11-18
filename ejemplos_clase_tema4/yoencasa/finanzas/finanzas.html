@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Control de finanzas personales</title>
+    <link rel="stylesheet" href="finanzas.css">
+    <script type="module" src="finanzas.js"></script>
+</head>
+<body>
+    <header class="cabecera">
+        <h1>Control de finanzas personales</h1>
+        <p>Organiza tus ingresos y gastos de forma sencilla.</p>
+    </header>
+
+    <main>
+        <section class="resumen" aria-labelledby="titulo-resumen">
+            <h2 id="titulo-resumen">Resumen económico</h2>
+            <div class="tarjetas-resumen">
+                <article class="tarjeta">
+                    <h3>Ingresos</h3>
+                    <p id="totalIngresos">0,00 €</p>
+                </article>
+                <article class="tarjeta">
+                    <h3>Gastos</h3>
+                    <p id="totalGastos">0,00 €</p>
+                </article>
+                <article class="tarjeta tarjeta-saldo">
+                    <h3>Saldo disponible</h3>
+                    <p id="saldo">0,00 €</p>
+                </article>
+            </div>
+        </section>
+
+        <div class="contenido">
+            <section class="zona-movimientos" aria-labelledby="titulo-movimientos">
+                <h2 id="titulo-movimientos">Mis movimientos</h2>
+
+                <div class="filtros">
+                    <div class="campo">
+                        <label for="buscador">Buscar por concepto</label>
+                        <input id="buscador" type="search" placeholder="Ej. supermercado">
+                    </div>
+
+                    <div class="campo">
+                        <label for="filtroTipo">Tipo</label>
+                        <select id="filtroTipo">
+                            <option value="todos">Todos</option>
+                            <option value="ingreso">Ingresos</option>
+                            <option value="gasto">Gastos</option>
+                        </select>
+                    </div>
+
+                    <div class="campo">
+                        <label for="filtroCategoria">Categoría</label>
+                        <select id="filtroCategoria">
+                            <option value="todas">Todas</option>
+                            <option value="Trabajo">Trabajo</option>
+                            <option value="Alimentación">Alimentación</option>
+                            <option value="Hogar">Hogar</option>
+                            <option value="Transporte">Transporte</option>
+                            <option value="Ocio">Ocio</option>
+                            <option value="Otros">Otros</option>
+                        </select>
+                    </div>
+                </div>
+
+                <p id="contador" class="contador"></p>
+                <ul id="movimientos" class="lista-movimientos"></ul>
+            </section>
+
+            <aside class="panel-formulario">
+                <h2>Nuevo movimiento</h2>
+
+                <form id="formulario" novalidate>
+                    <div class="campo">
+                        <label for="concepto">Concepto</label>
+                        <input id="concepto" name="concepto" type="text" autocomplete="off">
+                        <span class="error"></span>
+                    </div>
+
+                    <div class="campo">
+                        <label for="tipo">Tipo</label>
+                        <select id="tipo" name="tipo">
+                            <option value="">Selecciona un tipo</option>
+                            <option value="ingreso">Ingreso</option>
+                            <option value="gasto">Gasto</option>
+                        </select>
+                        <span class="error"></span>
+                    </div>
+
+                    <div class="campo">
+                        <label for="categoria">Categoría</label>
+                        <select id="categoria" name="categoria">
+                            <option value="">Selecciona una categoría</option>
+                            <option value="Trabajo">Trabajo</option>
+                            <option value="Alimentación">Alimentación</option>
+                            <option value="Hogar">Hogar</option>
+                            <option value="Transporte">Transporte</option>
+                            <option value="Ocio">Ocio</option>
+                            <option value="Otros">Otros</option>
+                        </select>
+                        <span class="error"></span>
+                    </div>
+
+                    <div class="campo">
+                        <label for="importe">Importe (€)</label>
+                        <input id="importe" name="importe" type="number" step="0.01">
+                        <span class="error"></span>
+                    </div>
+
+                    <div class="campo">
+                        <label for="fecha">Fecha</label>
+                        <input id="fecha" name="fecha" type="date">
+                        <span class="error"></span>
+                    </div>
+
+                    <button type="submit" class="boton-principal">Añadir movimiento</button>
+                </form>
+
+                <button id="limpiar" type="button" class="boton-secundario">
+                    Limpiar todos los movimientos
+                </button>
+                <p id="aviso" role="status" aria-live="polite"></p>
+            </aside>
+        </div>
+    </main>
+</body>
+</html>

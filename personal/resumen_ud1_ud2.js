@@ -616,3 +616,24 @@ const aprobados = notas.filter((alumno) => {
 
 console.log(aprobados);
 // [["Ana", 8], ["Luis", 6], ["Marta", 10]]
+
+//every y endsWith
+function acabanEnA(words) {
+  return words.every((word) => word.endsWith("a"));
+}
+
+//con Math.abs(numero) obtenemos el valor absoluto(-1 se convierte en 1)
+
+const sortAbsoluteNumbers = (numbers) =>
+  numbers.sort((a, b) => Math.abs(a) - Math.abs(b));
+
+// El método .filter() devuelve un nuevo array que contiene algunos de los elementos del array original, basándose en la condición que especifiques.
+// JavaScript tomará tu función de callback y la llamará para cada uno de los elementos del array.
+// Para el método .filter(), el resultado de la función de callback importa. Cuando es true, el elemento se incluirá en el array resultante. De lo contrario, no lo hará.
+// JavaScript no puede adivinar inteligentemente que el array numbers se convierte en el parámetro number en tu función de callback. En su lugar, JavaScript llama a tu función de callback pasando el valor (un argumento) al primer parámetro especificado en la definición de la función de callback.
+// Usa la convención de nomenclatura plural -> singular al usar el método .filter().
+// El método .find() devuelve el primer elemento que coincide con la condición que especificas. Si no se encontró ningún elemento, obtendrás undefined.
+// El método .filter() siempre devuelve un array, incluso si está vacío.
+// El método de array .map(callback) te permite transformar un array en otro.
+// El método de array .includes(item) toma un item y devuelve true cuando ese item existe en el array y false en caso contrario.
+// El método de array .join(glue) devuelve una cadena de los elementos del array separados por el glue.
