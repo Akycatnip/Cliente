@@ -1,0 +1,56 @@
+DESARROLLO WEB EN ENTORNO CLIENTE
+Práctica: Reserva de puestos en el aula
+
+El IES Gran Capitán quiere una aplicación para reservar puestos de trabajo en las aulas de informática. El alumnado podrá elegir su grupo, consultar las sillas disponibles, seleccionar hasta dos puestos y enviar sus datos.
+
+Se proporcionan reserva.html y reserva.css. Hay que escribir reserva.js.
+
+ELEMENTOS DE LA PÁGINA
+
+#grupo: desplegable con los grupos 1º DAW, 2º DAW y 1º DAM.
+#buscador: campo de texto para buscar sillas por su código.
+#aula: contenedor donde se pintan las sillas.
+#info: párrafo informativo.
+#resumen: muestra grupo y sillas seleccionadas.
+#total: muestra el importe de la reserva.
+#formulario: formulario con turno, materiales y datos personales.
+#aviso: muestra mensajes sobre la reserva.
+
+LO QUE TIENE QUE HACER
+
+1. Al elegir un grupo en el desplegable, se muestran las sillas de su aula.
+2. Cada silla se crea como un button con clase silla y su código en data-codigo.
+3. Las sillas ocupadas aparecen diferenciadas y no se pueden seleccionar.
+4. El usuario puede seleccionar hasta dos sillas. Si pulsa una silla ya seleccionada, se deselecciona.
+5. La selección se realizará mediante propagación/delegación de eventos: un único listener click en #aula. No se deben añadir listeners individuales a cada silla.
+6. El buscador oculta las sillas cuyo código no contiene el texto escrito, sin distinguir mayúsculas y minúsculas. Al borrar el buscador aparecen todas.
+7. Al cambiar de grupo, se borra la selección anterior y el buscador.
+8. El turno se elige mediante radio buttons: Mañana o Tarde. Es obligatorio elegir uno.
+9. Se pueden seleccionar varios materiales mediante checkbox:
+   - Auriculares: 2 €
+   - Ratón: 3 €
+   - Adaptador USB: 4 €
+10. Cada silla cuesta 5 €. El total suma las sillas y los materiales.
+11. Nombre, correo, teléfono y confirmación de datos son obligatorios.
+12. Validación mediante constantes Regex definidas en JavaScript:
+   - Nombre: entre 3 y 50 letras y espacios.
+   - Correo: debe terminar en @alu.uco.es.
+   - Teléfono: nueve cifras y empieza por 6 o 7.
+13. Los errores se muestran en los span.error correspondientes.
+14. Al enviar, evitar la recarga y comprobar grupo, sillas, turno y datos.
+15. Si todo es correcto, mostrar un mensaje con nombre, grupo, turno, sillas y precio total.
+16. Después del envío, limpiar el formulario y la selección.
+
+DATOS DE PRUEBA
+
+1º DAW: A3 y B2 ocupadas.
+2º DAW: A2, A5 y B4 ocupadas.
+1º DAM: A1 y B1 ocupadas.
+
+Pistas:
+- Para buscar una silla dentro del contenedor, utiliza evento.target.closest(".silla").
+- Para recuperar el código, utiliza silla.dataset.codigo.
+- Para comprobar si una silla ya está seleccionada, puedes utilizar includes().
+- Para recuperar todos los checkbox marcados, utiliza FormData.getAll("material").
+
+Abre reserva.html con Live Server.

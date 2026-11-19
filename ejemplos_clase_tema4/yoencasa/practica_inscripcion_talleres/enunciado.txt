@@ -1,0 +1,37 @@
+DWEC · Práctica: Inscripción a talleres
+
+La academia GCapitán quiere que sus alumnos puedan inscribirse en talleres desde una página web.
+
+La página muestra una lista de talleres con su nombre y precio. El usuario debe elegir un taller y completar un formulario.
+
+Elementos de la página
+- #talleres: lista de talleres que se genera desde JavaScript.
+- #info: muestra la descripción del taller al pasar el ratón.
+- #resumen: muestra el taller y los materiales seleccionados.
+- #total: muestra el precio total.
+- #formulario: formulario de inscripción.
+- #aviso: muestra el resultado del envío.
+
+Qué tiene que hacer
+1. Al abrir la página, mostrar todos los talleres del array.
+2. Cada taller tendrá un botón «Elegir». Al pulsarlo, se seleccionará ese taller.
+3. Al pasar el ratón por un taller, mostrar su descripción en #info. Al salir, borrar el texto.
+4. El formulario tendrá radio buttons para elegir un único turno: Mañana, Tarde o Fin de semana.
+5. Tendrá checkbox para seleccionar ninguno, uno o varios materiales:
+   - Cuaderno: 3 €
+   - Kit de herramientas: 8 €
+   - Dossier impreso: 2 €
+6. Actualizar el resumen y el total cuando se seleccione otro taller o cambien los materiales.
+7. El nombre, el correo, el turno y la aceptación de condiciones son obligatorios.
+8. El correo debe tener formato válido.
+9. Los errores se mostrarán en los span.error propios de cada campo o grupo.
+10. Al enviar, evitar la recarga de la página y comprobar que se ha elegido un taller y que el formulario es válido.
+11. Si todo está correcto, mostrar un mensaje con el nombre, el turno y el precio total.
+12. Después del envío, limpiar el formulario y dejar la página preparada para otra inscripción.
+
+Archivos
+- index.html: estructura y formulario.
+- estilos.css: estilos.
+- inscripcion.js: solución JavaScript.
+
+Abre index.html con Live Server.

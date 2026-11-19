@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inscripción · Talleres GCapitán</title>
+  <link rel="stylesheet" href="estilos.css">
+  <script type="module" src="inscripcion.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Talleres GCapitán</h1>
+    <p>Diseña tu inscripción y consulta el precio antes de enviarla.</p>
+  </header>
+
+  <main>
+    <section class="zona-taller">
+      <h2>Elige tu taller</h2>
+      <ul id="talleres"></ul>
+      <p id="info"></p>
+    </section>
+
+    <section class="zona-inscripcion">
+      <h2>Tu inscripción</h2>
+      <p id="resumen">Todavía no has elegido ningún taller.</p>
+      <p id="total"></p>
+
+      <form id="formulario" novalidate>
+        <h3>Personaliza tu inscripción</h3>
+
+        <fieldset>
+          <legend>Turno (elige uno)</legend>
+          <label><input type="radio" name="turno" value="Mañana" required> Mañana</label>
+          <label><input type="radio" name="turno" value="Tarde"> Tarde</label>
+          <label><input type="radio" name="turno" value="Fin de semana"> Fin de semana</label>
+          <span class="error"></span>
+        </fieldset>
+
+        <fieldset>
+          <legend>Material adicional (puedes elegir varios)</legend>
+          <label><input type="checkbox" name="material" value="Cuaderno"> Cuaderno (+3 €)</label>
+          <label><input type="checkbox" name="material" value="Kit de herramientas"> Kit de herramientas (+8 €)</label>
+          <label><input type="checkbox" name="material" value="Dossier impreso"> Dossier impreso (+2 €)</label>
+          <span class="error"></span>
+        </fieldset>
+
+        <p>
+          <label for="nombre">Nombre y apellidos</label>
+          <input id="nombre" name="nombre" type="text" required>
+          <span class="error"></span>
+        </p>
+
+        <p>
+          <label for="correo">Correo electrónico</label>
+          <input id="correo" name="correo" type="email" required>
+          <span class="error"></span>
+        </p>
+
+        <p class="aceptacion">
+          <label><input id="condiciones" name="condiciones" type="checkbox" required>
+            Acepto las condiciones de inscripción</label>
+          <span class="error"></span>
+        </p>
+
+        <button type="submit">Enviar inscripción</button>
+      </form>
+
+      <p id="aviso"></p>
+    </section>
+  </main>
+</body>
+</html>
