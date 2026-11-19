@@ -1,0 +1,82 @@
+
+:root {
+    --fondo: #f5f1e9;
+    --tinta: #49483f;
+    --verde: #68735a;
+    --rojo: #c66b6b;
+    --magenta: #b35c85;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--fondo);
+    color: var(--tinta);
+    max-width: 850px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+h1, p {
+    text-align: center;
+}
+
+.escenario {
+    background: var(--tinta);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin: 2rem 0;
+    border-radius: 12px;
+}
+
+#festival {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.zona {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+}
+
+.entrada {
+    padding: 0.7rem;
+    min-width: 55px;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    cursor: pointer;
+    background: white;
+}
+
+.entrada.vendida {
+    background: #ddd;
+    color: #777;
+    cursor: not-allowed;
+}
+
+.entrada.seleccionada {
+    background: var(--verde);
+    color: white;
+    border-color: var(--verde);
+}
+
+.entrada .letra {
+    font-size: 0.75em;
+    margin-right: 3px;
+}
+
+#info {
+    margin-top: 2rem;
+    font-weight: bold;
+}
+
+#aviso {
+    color: var(--magenta);
+    font-weight: bold;
+    min-height: 1.5em;
+}

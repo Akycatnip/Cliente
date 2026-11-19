@@ -3,7 +3,7 @@ const aviso = document.querySelector("#aviso");
 const info = document.querySelector("#info");
 const pantalla = document.querySelector("#pantalla");
 const codigo = document.querySelector("#codigo");
-
+//filtramos las elegidas
 function pintarAviso() {
   const elegidas = [...document.querySelectorAll(".elegida")].map(
     (butaca) => butaca.textContent,
