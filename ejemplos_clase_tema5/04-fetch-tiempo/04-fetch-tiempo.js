@@ -1,0 +1,40 @@
+//Ejemplo de ? el servidor no da error, solo q no devuelve datos
+
+const botonBuscar = document.querySelector("#buscar");
+const ciudad = document.querySelector("#ciudad");
+const estado = document.querySelector("#estado");
+
+
+botonBuscar.addEventListener("click", async () => {
+    try {
+        const urlBusqueda = `https://geocoding-api.open-meteo.com/v1/search?name=${ciudad.value}&count=1&language=es&countryCode=ES`;
+        const respuesta = await fetch(urlBusqueda);
+
+        if (!respuesta.ok) {
+            throw new Error(`Código ${respuesta.status}`);
+        }
+        const busqueda = await respuesta.json();
+        const lugar = busqueda.results?.[0];//si eln la respuesta hay results quedate con el primer elemento, si no
+        //pon undefined en vez de dar error
+        if (lugar === undefined) {
+            throw new Error("No se encuentra esda ciudad");
+        }
+
+        const urlTiempo = `https://api.open-meteo.com/v1/forecast?latitude=${lugar.latitude}&longitude=${lugar.longitude}&current=temperature_2m,wind_speed_10m`;
+
+        const respuestaTiempo = await fetch(urlTiempo);
+
+        if (!respuestaTiempo.ok) {
+            throw new Error(`Código${respuestaTiempo.status}`);
+
+        }
+        const tiempo = await respuestaTiempo.json();
+        estado.textContent = `${lugar.name} ${tiempo.current.temperature_2m} ºC`;
+
+
+    } catch (error) {
+        estado.textContent = `No se ha podido consultar. ${error.message}`;
+    }
+
+
+})
